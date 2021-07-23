@@ -24,7 +24,8 @@ namespace ServerBackup
                 if (this.StartBackupRequest())
                     success = this.CheckBackupStatus();
 
-                // other code to compress the file
+                if (success)
+                    new BackupFilesManager().CompressBackupFilesAndMove();
             }
             catch (Exception e)
             {
